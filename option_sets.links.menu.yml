@@ -1,0 +1,10 @@
+option_sets.collection:
+  title: 'Option Sets'
+  description: 'Manage different option sets.'
+  parent: system.admin_structure
+  route_name: entity.option_sets.collection
+
+option_sets.add_form:
+  title: 'Add Option Sets'
+  parent: option_sets.collection
+  route_name: entity.option_sets.add_form

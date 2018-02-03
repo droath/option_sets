@@ -1,0 +1,14 @@
+{
+    "name": "drupal/option_sets",
+    "description": "Manage and reuse option sets through-out the Drupal ecosystem.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Travis Tomka",
+            "email": "underoathosx@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

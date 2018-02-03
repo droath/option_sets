@@ -1,0 +1,4 @@
+services:
+  option_sets.manager:
+    class: Drupal\option_sets\OptionSetsManager
+    arguments: ["@entity_type.manager"]

@@ -1,0 +1,5 @@
+type: module
+name: Option Sets
+description: Manage and reuse option sets through-out the Drupal ecosystem.
+core: 8.x
+package: Other

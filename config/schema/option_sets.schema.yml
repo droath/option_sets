@@ -1,0 +1,29 @@
+field.field_settings.option_sets:
+  type: mapping
+  label: 'Option sets field settings.'
+  mapping:
+    option_sets:
+      type: string
+      label: 'Option sets value'
+
+field.widget.settings.option_sets_select:
+  type: mapping
+  label: 'Field widget select settings option sets.'
+  mapping:
+    multiple_select:
+      type: boolean
+      label: 'Multiple select'
+
+option_sets.option_sets.*:
+  type: config_entity
+  label: 'Option Sets Configuration'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: string
+      label: 'Label'
+    options:
+      type: text
+      label: 'Options'

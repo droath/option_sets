@@ -1,0 +1,5 @@
+entity.option_sets.add_form:
+  title: Add option sets
+  route_name: entity.option_sets.add_form
+  appears_on:
+    - entity.option_sets.collection
