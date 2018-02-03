@@ -4,6 +4,7 @@ namespace Drupal\option_sets\Form;
 
 use Drupal\Core\Entity\EntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\option_sets\Entity\OptionSetsEntity;
 
 /**
  * Define the option sets delete form.
@@ -37,15 +38,19 @@ class OptionSetsDeleteForm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    /** @var OptionSetsEntity $entity */
     $entity = $this->entity;
     $element = $form[$this->getFormName()];
+    $dependencies = $entity->listFieldDependencies();
 
-    $message = $this->t(
-      'Please remove these dependencies: @depends prior to deleting the @label option sets.', [
+    if (!empty($dependencies)) {
+      $message = $this->t(
+        'Please remove these dependencies: @depends prior to deleting the @label option sets.', [
         '@label' => $entity->label(),
         '@depends' => implode(',', $entity->listFieldDependencies())
-    ]);
-    $form_state->setError($element, $message);
+      ]);
+      $form_state->setError($element, $message);
+    }
   }
 
   /**
