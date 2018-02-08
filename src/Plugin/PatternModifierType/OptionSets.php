@@ -63,11 +63,9 @@ class OptionSets extends PatternModifierTypeBase implements PatternModifierTypeI
   public function render() {
     return [
       '#type' => 'select',
-      '#title' => $this->title(),
-      '#description' => $this->description(),
       '#options' => $this->getOptionSetsOptions(),
       '#empty_option' => $this->t('- Select -'),
-    ];
+    ] + parent::render();
   }
 
   /**
@@ -92,5 +90,14 @@ class OptionSets extends PatternModifierTypeBase implements PatternModifierTypeI
     }
 
     return $option_sets->processedOptions();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function defaultConfiguration() {
+    return [
+      'description' => 'Select the value to use for the modifier.'
+    ];
   }
 }
