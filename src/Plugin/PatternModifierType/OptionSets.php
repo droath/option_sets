@@ -64,7 +64,7 @@ class OptionSets extends PatternModifierTypeBase implements PatternModifierTypeI
     return [
       '#type' => 'select',
       '#options' => $this->getOptionSetsOptions(),
-      '#empty_option' => $this->t('- Select -'),
+      '#empty_option' => $this->t('- Default -'),
     ] + parent::render();
   }
 
