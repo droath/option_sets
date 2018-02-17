@@ -79,17 +79,19 @@ class OptionSetsSelectWidget extends WidgetBase implements ContainerFactoryPlugi
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $elements = [];
 
-    $elements['value'] = [
+    $element = [
       '#type' => 'select',
       '#options' => $this->optionSetsOptions(),
-      '#empty_option' => $this->t('- None -'),
       '#multiple' => $this->getSetting('multiple_select'),
       '#default_value' => !$items->isEmpty() ? $items->get($delta)->value : [],
     ] + $element;
 
-    return $elements;
+    if (isset($element['#required']) && !$element['#required']) {
+      $element['#empty_option'] = $this->t('- None -');
+    }
+
+    return ['value' => $element];
   }
 
   /**

@@ -61,10 +61,14 @@ class OptionSets extends PatternModifierTypeBase implements PatternModifierTypeI
    *   A render array.
    */
   public function render() {
+    $options = $this->getOptionSetsOptions();
+    $default_value = $this->defaultValue();
+
     return [
       '#type' => 'select',
-      '#options' => $this->getOptionSetsOptions(),
+      '#options' => $options,
       '#empty_option' => $this->t('- Default -'),
+      '#default_value' => isset($options[$default_value]) ? $default_value : NULL,
     ] + parent::render();
   }
 
