@@ -64,9 +64,7 @@ class OptionSetsItem extends FieldItemBase {
           'serialize' => TRUE,
         ],
       ],
-      'indexes' => [
-        'value' => ['value'],
-      ]
+      'indexes' => []
     ];
   }
 
